@@ -1,77 +1,115 @@
+
 # RepoEvaluator 🚀
 
 An intelligent system that evaluates public GitHub repositories and generates a score, written summary, and personalized improvement roadmap using Google Gemini AI.
 
-![RepoEvaluator Demo](https://repo-evaluator-andrew.vercel.app/)
+![RepoEvaluator Demo](https://placehold.co/1200x630/1a1a1a/ffffff?text=RepoEvaluator+Preview)
 
 ## 🎯 Features
 
-- **Instant Analysis**: Fetches real repository data via GitHub API.
-- **AI-Powered Insights**: Uses Google Gemini to generate honest, recruiter-style feedback.
-- **Smart Scoring**: Calculates a 0-100 score based on code quality, structure, documentation, and testing.
-- **Actionable Roadmap**: Provides a step-by-step guide to improve the project.
-- **Premium UI**: Dark mode, parallax effects, and smooth animations.
+- **Real Repository Analysis**  
+  Fetches live data using the GitHub API (structure, commits, README, tech stack).
+
+- **AI-Powered Evaluation**  
+  Uses Google Gemini to generate recruiter-style feedback.
+
+- **Smart Scoring System**  
+  Produces a 0–100 score based on structure, documentation, testing, and maintainability.
+
+- **Personalized Roadmap**  
+  Actionable steps tailored to the specific repository.
+
+- **Premium UI Experience**  
+  Dark theme, bold typography, smooth animations, and interactive parallax effects.
+
+---
 
 ## 🛠️ Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
 - **Styling**: Tailwind CSS, Framer Motion
 - **AI**: Google Gemini API (`gemini-1.5-flash`)
-- **Data**: GitHub REST API (`octokit`)
+- **Data**: GitHub REST API (Octokit)
 - **Icons**: Lucide React
+- **Deployment**: Vercel
 
-## 🚀 Getting Started
+---
+
+## 🚀 Getting Started (Local Setup)
 
 ### Prerequisites
-
 - Node.js 18+
-- A Google Gemini API Key
-- (Optional) A GitHub Personal Access Token
+- Google Gemini API Key
+- (Optional but recommended) GitHub Personal Access Token
 
 ### Installation
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/repo-evaluator.git
-    cd repo-evaluator
-    ```
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/repo-evaluator.git
+   cd repo-evaluator
+Install dependencies
 
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
+bash
+Copy code
+npm install
+Set up environment variables
 
-3.  Set up environment variables:
-    - Copy `.env.example` to `.env.local`:
-      ```bash
-      cp .env.example .env.local
-      ```
-    - Add your API keys to `.env.local`.
+bash
+Copy code
+cp .env.example .env
+Add your keys inside .env:
 
-4.  Run the development server:
-    ```bash
-    npm run dev
-    ```
+env
+Copy code
+GEMINI_API_KEY=your_gemini_api_key
+GITHUB_TOKEN=your_github_token
+Run the development server
 
-5.  Open [http://localhost:3000](http://localhost:3000) in your browser.
+bash
+Copy code
+npm run dev
+Open http://localhost:3000
 
-## 🔐 Security
+🔐 Security & Best Practices
+API keys are stored only in environment variables.
 
-- **API Keys**: Stored in environment variables (`.env.local`). Never exposed to the client.
-- **Server-Side Analysis**: All AI interactions happen on the server via Next.js Server Components.
-- **Input Validation**: Repository URLs are validated before processing.
+No secrets are committed to the repository.
 
-## 🧱 Architecture
+All AI analysis runs server-side.
 
-1.  **User Input**: User submits a GitHub URL on the landing page.
-2.  **Data Fetching**: Server Component fetches repository metadata (structure, languages, README) using `octokit`.
-3.  **AI Analysis**: Structured data is sent to Gemini API with a specialized prompt.
-4.  **Rendering**: Results are streamed to the client with a premium UI.
+The frontend never directly accesses Gemini or GitHub APIs.
 
-## 🧪 Demo Mode
+Repository URLs are validated before analysis.
 
-If no API key is provided, the system falls back to a "Mock Mode" for demonstration purposes, showing example data.
+🧱 System Architecture
+User Input
+User submits a public GitHub repository URL.
 
-## 📄 License
+Data Fetching
+Server fetches repository metadata via GitHub API.
 
-MIT
+AI Analysis
+Structured repo data is sent to Gemini with a specialized evaluation prompt.
+
+Output Rendering
+Score, summary, and roadmap are rendered with a responsive UI.
+
+🧪 Demo / Fallback Mode
+If API keys are not provided, the app automatically switches to Mock Mode, displaying example outputs for demonstration purposes.
+
+This ensures the project remains usable during demos and reviews.
+
+🎓 Hackathon Relevance
+This project prioritizes:
+
+Accuracy over assumptions
+
+Honest feedback over inflated scores
+
+Actionable guidance over generic advice
+
+It evaluates real developer output, not theory.
+
+📄 License
+MIT License
