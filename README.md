@@ -62,77 +62,73 @@ The system focuses on **practical code quality**, not theoretical metrics.
 
 ### Installation
 
-1. Clone the repository
+1. **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/repo-evaluator.git
    cd repo-evaluator
-Install dependencies
+   ```
 
-npm install
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   Add your keys inside `.env`:
+   ```env
+   GEMINI_API_KEY=your_gemini_api_key
+   GITHUB_TOKEN=your_github_token
+   ```
 
-Set up environment variables
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-cp .env.example .env
+5. **Open** [http://localhost:3000](http://localhost:3000)
 
+---
 
-Add your keys inside .env:
+## 🔐 Security & Best Practices
 
-GEMINI_API_KEY=your_gemini_api_key
-GITHUB_TOKEN=your_github_token
+- **API keys** are stored only in environment variables.
+- **No secrets** are committed to the repository.
+- **All AI analysis** runs server-side.
+- **The frontend** never directly accesses Gemini or GitHub APIs.
+- **Repository URLs** are validated before analysis.
 
+---
 
-Run the development server
+## 🧱 System Architecture
 
-npm run dev
+1. **User Input**: User submits a public GitHub repository URL.
+2. **Data Fetching**: Server fetches repository metadata via GitHub API.
+3. **AI Analysis**: Structured repo data is sent to Gemini with a specialized evaluation prompt.
+4. **Output Rendering**: Score, summary, and roadmap are rendered with a responsive UI.
 
+---
 
-Open http://localhost:3000
+## 🧪 Demo / Fallback Mode
 
-🔐 Security & Best Practices
-
-API keys are stored only in environment variables.
-
-No secrets are committed to the repository.
-
-All AI analysis runs server-side.
-
-The frontend never directly accesses Gemini or GitHub APIs.
-
-Repository URLs are validated before analysis.
-
-🧱 System Architecture
-
-User Input
-User submits a public GitHub repository URL.
-
-Data Fetching
-Server fetches repository metadata via GitHub API.
-
-AI Analysis
-Structured repo data is sent to Gemini with a specialized evaluation prompt.
-
-Output Rendering
-Score, summary, and roadmap are rendered with a responsive UI.
-
-🧪 Demo / Fallback Mode
-
-If API keys are not provided, the app automatically switches to Mock Mode, displaying example outputs for demonstration purposes.
-
+If API keys are not provided, the app automatically switches to **Mock Mode**, displaying example outputs for demonstration purposes.  
 This ensures the project remains usable during demos and reviews.
 
-🎓 Hackathon Relevance
+---
+
+## 🎓 Hackathon Relevance
 
 This project prioritizes:
-
-Accuracy over assumptions
-
-Honest feedback over inflated scores
-
-Actionable guidance over generic advice
+- **Accuracy** over assumptions
+- **Honest feedback** over inflated scores
+- **Actionable guidance** over generic advice
 
 It evaluates real developer output, not theory.
 
-📄 License
+---
+
+## 📄 License
 
 MIT License
