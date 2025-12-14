@@ -1,11 +1,29 @@
-
 # RepoEvaluator 🚀
 
-An intelligent system that evaluates public GitHub repositories and generates a score, written summary, and personalized improvement roadmap using Google Gemini AI.
+<p align="center">
+  <img src="public/screenshots/homepage.png" alt="RepoEvaluator Home Page" width="100%" />
+</p>
 
-![RepoEvaluator Demo](public/screenshots/homepage.png)
+<p align="center">
+An AI-powered system that evaluates public GitHub repositories and reflects their real-world quality through a score, honest summary, and personalized improvement roadmap.
+</p>
 
-## 🎯 Features
+<p align="center">
+🔗 <a href="https://repo-evaluator-andrew.vercel.app">Live Demo</a>
+</p>
+
+---
+
+## 🎯 What is RepoEvaluator?
+
+RepoEvaluator acts as a **repository mirror** for developers.  
+It analyzes real GitHub repository data and shows how a project would look to a recruiter or mentor — what’s strong, what’s weak, and what to improve next.
+
+The system focuses on **practical code quality**, not theoretical metrics.
+
+---
+
+## ✨ Features
 
 - **Real Repository Analysis**  
   Fetches live data using the GitHub API (structure, commits, README, tech stack).
@@ -50,28 +68,29 @@ An intelligent system that evaluates public GitHub repositories and generates a 
    cd repo-evaluator
 Install dependencies
 
-bash
-Copy code
 npm install
+
+
 Set up environment variables
 
-bash
-Copy code
 cp .env.example .env
+
+
 Add your keys inside .env:
 
-env
-Copy code
 GEMINI_API_KEY=your_gemini_api_key
 GITHUB_TOKEN=your_github_token
+
+
 Run the development server
 
-bash
-Copy code
 npm run dev
+
+
 Open http://localhost:3000
 
 🔐 Security & Best Practices
+
 API keys are stored only in environment variables.
 
 No secrets are committed to the repository.
@@ -83,6 +102,7 @@ The frontend never directly accesses Gemini or GitHub APIs.
 Repository URLs are validated before analysis.
 
 🧱 System Architecture
+
 User Input
 User submits a public GitHub repository URL.
 
@@ -96,11 +116,13 @@ Output Rendering
 Score, summary, and roadmap are rendered with a responsive UI.
 
 🧪 Demo / Fallback Mode
+
 If API keys are not provided, the app automatically switches to Mock Mode, displaying example outputs for demonstration purposes.
 
 This ensures the project remains usable during demos and reviews.
 
 🎓 Hackathon Relevance
+
 This project prioritizes:
 
 Accuracy over assumptions
@@ -112,4 +134,5 @@ Actionable guidance over generic advice
 It evaluates real developer output, not theory.
 
 📄 License
+
 MIT License
