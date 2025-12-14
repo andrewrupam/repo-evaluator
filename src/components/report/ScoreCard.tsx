@@ -35,7 +35,7 @@ export function ScoreCard({ score, breakdown }: ScoreCardProps) {
             <CardHeader>
                 <CardTitle>Overall Score</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col md:flex-row items-center gap-8">
+            <CardContent className="flex flex-col md:flex-row lg:flex-col items-center gap-8">
                 {/* Circular Progress */}
                 <div className="relative h-40 w-40 flex-shrink-0">
                     <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
@@ -75,7 +75,7 @@ export function ScoreCard({ score, breakdown }: ScoreCardProps) {
                 </div>
 
                 {/* Breakdown */}
-                <div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
                     {Object.entries(breakdown).map(([key, value]) => (
                         <div key={key} className="space-y-1">
                             <div className="flex justify-between text-sm">
