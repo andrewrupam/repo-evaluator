@@ -4,15 +4,15 @@ import { RepoData, AnalysisResult } from './types';
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
 export async function analyzeRepo(repoData: RepoData): Promise<AnalysisResult | null> {
-    if (!process.env.GEMINI_API_KEY) {
-        console.error('GEMINI_API_KEY is not set');
-        return null;
-    }
+  if (!process.env.GEMINI_API_KEY) {
+    return null;
+  }
 
-    try {
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+  try {
+    // User requested specific model version
+    const model = genAI.getGenerativeModel({ model: 'models/gemini-2.5-flash' });
 
-        const prompt = `
+    const prompt = `
       You are an expert Senior Software Engineer and Tech Lead. Your task is to evaluate a GitHub repository based on the provided metadata and generate a constructive, honest, and actionable report.
       
       **Repository Data:**
@@ -52,16 +52,16 @@ export async function analyzeRepo(repoData: RepoData): Promise<AnalysisResult | 
       Act as an AI mentor guiding a student. Be encouraging but critical. Do not hallucinate features that are not there. If tests are missing, say so. If the README is empty, penalize it.
     `;
 
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        const text = response.text();
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
 
-        // Clean up markdown code blocks if present
-        const cleanedText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+    // Clean up markdown code blocks if present
+    const cleanedText = text.replace(/```json/g, '').replace(/```/g, '').trim();
 
-        return JSON.parse(cleanedText) as AnalysisResult;
-    } catch (error) {
-        console.error('Error analyzing repo with Gemini:', error);
-        return null;
-    }
+    return JSON.parse(cleanedText) as AnalysisResult;
+  } catch (error) {
+    console.error('Error analyzing repo with Gemini:', error);
+    return null;
+  }
 }
