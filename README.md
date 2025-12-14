@@ -2,7 +2,7 @@
 
 An intelligent system that evaluates public GitHub repositories and generates a score, written summary, and personalized improvement roadmap using Google Gemini AI.
 
-![RepoEvaluator Demo](https://placehold.co/1200x630/1a1a1a/ffffff?text=RepoEvaluator+Preview)
+![RepoEvaluator Demo](https://repo-evaluator-andrew.vercel.app/)
 
 ## 🎯 Features
 
