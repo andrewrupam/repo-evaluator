@@ -128,6 +128,7 @@ This project prioritizes:
 It evaluates real developer output, not theory.
 
 ---
+💡 **Best Experience:** This project is designed for **dark mode**. For optimal visuals, please enable dark theme in your system or browser.
 
 ## 📄 License
 
